@@ -1,2 +1,9 @@
-# adjusted_mutual_information
-R code for the fast &amp; parallelized calculation of Adjusted Mutual Information between clusterings
+# Calculate Adjusted Mutual Information between Clusterings
+
+This repository contains code for the fast & parallelized calculation of Adjusted Mutual Information (AMI), Normalized Mutual Information (NMI) and Adjusted Rand Index (ARI) between clusterings in R.
+
+NMI and ARI are widely used and well-established metrics of partition agreement. The Adjusted Mutual Information metric was suggested by [Vinh et al, 2009](http://dl.acm.org/citation.cfm?id=1553511). It provides a normalized mutual information metric that is corrected for shifting baseline values of randomly expected partition overlap by computing an Expected Mutual Information (EMI) between partitions of the observed cluster size distributions. For more information, see also [wikipedia](https://en.wikipedia.org/wiki/Adjusted_mutual_information). The original authors have provided [Matlab code](https://sites.google.com/site/vinhnguyenx/softwares) to compute AMI values and more.
+
+The code in this repository provides fast, efficient and parallelizable calculations of AMI, NMI and ARI. It was used in [Schmidt et al., 2014](http://onlinelibrary.wiley.com/doi/10.1111/1462-2920.12610/abstract) for a specific biological application: to assess the agreement of partitions when clustering microbial metagenomic sequence data into [Operational Taxonomic Units](https://en.wikipedia.org/wiki/Operational_taxonomic_unit) (OTUs).
+
+The data provided in this repository is for a set of ~1M sequences, clustered into OTUs according to either [hierarchical](https://en.wikipedia.org/wiki/Hierarchical_clustering) complete linkage or average linkage clustering. Both partitions are saved in a one-line-per-cluster ("otu mapping") and a one-line-per-sequence ("seq mapping") format; more details are provided in the R script. Importantly, the code is generic and can be used for any type of clustering data; the sequence clustering into OTUs is only one applied example.
